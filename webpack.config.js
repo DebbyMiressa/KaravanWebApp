@@ -7,6 +7,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -19,6 +20,22 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.mp4$/,
+        use: [
+            {
+                loader: "file-loader",
+                options: {
+                    name: "[name].[ext]",
+                    outputPath: "video"
+                }
+            }
+        ]
+    }
     ],
   },
   output: {
