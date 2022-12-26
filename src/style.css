@@ -4,6 +4,8 @@ body {
   box-sizing: border-box;
   border: 0;
   overflow-x: hidden;
+  z-index: -3;
+  position: relative;
 }
 
 header {
@@ -25,12 +27,12 @@ header {
 
 #hero-section::after {
   width: 100%;
-  height: 56.25vw;
+  height: 54.5vw;
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 3;
 }
 
@@ -38,7 +40,7 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
+  z-index: 2;
 }
 
 #hero-overlay {
@@ -58,7 +60,7 @@ header {
   text-align: center;
 }
 
-#hero-overlay h5, p {
+#hero-overlay h5, #hero-overlay p {
   display: none;
 }
 
@@ -69,7 +71,9 @@ header {
 #hero-overlay button {
   background-color: #dbb94600;
   border-color: #fff;
-  color: #fff;
+  color: #ffffff;
+  width: 120px;
+  height: 40px;
 }
 
 #hero-overlay button:hover {
@@ -137,9 +141,10 @@ header {
   position: absolute;
   top: 47vw;
   left: 0;
-  width: 100%;
   height: 11.25vw;
   z-index: 9;
+  object-position: cover;
+  overflow-x: hidden;
 }
 
 #ribbon img {
@@ -157,7 +162,8 @@ header {
 
 footer {
   padding: 0;
-  background-image: url("../img/karavan-camel-green-custom.png");
+  background-image: url("../img/karavan-camel-green-long.png");
+  background-size: auto 100%;
   color:#eee26f;
 }
 
@@ -196,6 +202,7 @@ footer ul a:hover {
 
 footer .social {
   text-align:center;
+  margin-top: 40px;
 }
 
 
@@ -227,13 +234,163 @@ footer .copyright {
   margin-bottom:0;
   font-size:13px;
   opacity:0.7;
+  text-align: center;
 }
 
 .account {
   display: none;
 }
 
+.dynamic-page {
+  position: relative;
+  display: block;
+  z-index: -2;
+}
+
+.fab-container {
+
+  position:fixed;
+  
+  bottom:25px;
+  
+  right:25px;
+  
+  cursor:pointer;
+  
+  z-index: -1;
+}
+
+.iconbutton {
+
+  width:50px;
+  
+  height:50px;
+  
+  border-radius: 100%;
+  
+  background: #0a3d38;
+  
+  box-shadow: 5px 7px 5px #aaaaaa;
+  
+  }
+
+  .iconbutton i {
+
+    display:flex;
+    
+    align-items:center;
+    
+    justify-content:center;
+    
+    height: 100%;
+    
+    color:#eee26f;
+
+    font-size: 26px;
+    
+  }
+
+  .fab-container {
+    display:flex;
+
+    justify-content:flex-end;
+
+    padding:5px;
+  }
+
+  .btn-label {
+    display: none;
+  }
+
+  .fab-container:hover > .btn-label {
+
+    display: inline;
+
+    padding: 2px 5px;
+    
+    margin-right: 10px;
+    
+    align-self: center;
+    
+    background-color: #0a3d38;
+    
+    color:#eee26f;
+    
+    border-radius: 3px;
+    
+    box-shadow: 5px 7px 5px #aaaaaa;
+    
+  }
+
+  #WelcomeSection h1 {
+    text-align: center;
+    margin-top: 0;
+  }
+
+  #WelcomeSection p {
+    width: 80vw;
+    text-align: center;
+    margin: auto;
+  }
+
+  #WelcomeSection button {
+    background-color: #10665e;
+    border-color: #10665e;
+    color: #eee26f;
+    margin-top: 30px;
+    padding: 10px;
+  }
+
+  #WelcomeSection button:hover {
+    background-color: #0a3d38;
+    border-color: #0a3d38;
+  }
+
+  #carouselExampleIndicators {
+    margin: 50px auto 80px;
+  }
+
+  .left-image {
+   display: none;
+  }
+
+  .right-image {
+    display: none;
+  }
+
+  .WhyKaravanMain {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    gap: 20px;
+    margin: 30px 0;
+  }
+
+  #WhyKaravanSection {
+    text-align: center;
+  }
+
+  .keypoint-img {
+    display: none;
+  }
+
+  .statistics {
+    background-color: #10665e;
+    color: #eee26f;
+  }
+
+  .stat {
+    padding: 20px 0 0;
+  }
+
+  .stat:hover {
+    background-color: #00000066;
+  }
+
 @media (min-width: 768px) {
+
   .logo {
     order: 1;
   }
@@ -259,12 +416,38 @@ footer .copyright {
     display: flex;
   }
 
+  #WelcomeSection p {
+    width: 50vw;
+  }
+
+  #carouselExampleIndicators {
+    width: 50vw;
+  }
+
+  .left-image {
+    display: block;
+    background-image: url('../img/left.png');
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+   }
+ 
+  .right-image {
+    display: block;
+    background-image: url('../img/right.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
   .item {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   #hero-overlay h5, p {
     display: block;
+  }  
+  footer .social {
+    margin-top: 0;
   }
 }
 
@@ -280,5 +463,13 @@ footer .copyright {
 
   .logo img {
     width: 160px;
+  }
+
+  #hero-overlay p {
+    display: block;
+  }
+
+  .keypoint-img {
+    display: block;
   }
 }
